@@ -89,6 +89,14 @@ export interface Manifest {
    * Egress allowlist (host:port patterns). Not enforced by e2b today.
    */
   egressAllowlist?: string[];
+
+  /**
+   * ADR-016 outbound policy for hosted app containers. Empty means no
+   * outbound network. Domains can be exact names or "*.example.com" globs.
+   */
+  network?: {
+    allowed_domains: string[];
+  };
 }
 
 export interface RunTiming {
